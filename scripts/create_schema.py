@@ -19,7 +19,7 @@ def main():
     print("Creating database schema...")
     engine = get_engine()
     Base.metadata.create_all(engine)
-    print("✅ Schema created successfully.")
+    print("[OK] Schema created successfully.")
 
 if __name__ == "__main__":
     main()

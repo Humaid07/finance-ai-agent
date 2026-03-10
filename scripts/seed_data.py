@@ -307,8 +307,8 @@ def seed():
             {"account": "1020", "credit": 220000.00},
         ])
 
-        print(f"✅ Seeded {je_counter - 1} journal entries with lines.")
-        print("✅ Sample data loaded successfully.")
+        print(f"[OK] Seeded {je_counter - 1} journal entries with lines.")
+        print("[OK] Sample data loaded successfully.")
 
 
 if __name__ == "__main__":
