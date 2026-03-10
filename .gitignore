@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+*.pyc
+
+# Azure Functions
+local.settings.json
+.python_packages/
+bin/
+obj/
+
+# Node / Frontend
+node_modules/
+dist/
+.parcel-cache/
+*.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+
+# Azure
+.azure/
+
+# Docker
+*.pid
