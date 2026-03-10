@@ -52,7 +52,7 @@ class FallbackProvider(BaseLLMProvider):
                 tool_calls=[ToolCall(tool_name="get_pnl", arguments={})],
                 finish_reason="tool_calls",
             )
-        elif any(k in user_msg for k in ["top expense", "highest expense", "biggest expense"]):
+        elif any(k in user_msg for k in ["top expense", "highest expense", "biggest expense", "top 5", "top five", "expense account"]):
             return LLMResponse(
                 content=None,
                 tool_calls=[ToolCall(tool_name="get_top_expenses", arguments={"limit": 5})],
@@ -61,6 +61,8 @@ class FallbackProvider(BaseLLMProvider):
         elif any(k in user_msg for k in ["balance of", "balance", "what is", "show me", "cash"]):
             match = re.search(r"(?:balance of|show me|what is the|balance)\s+(.+?)(?:\?|$)", user_msg)
             account_name = match.group(1).strip() if match else "cash"
+            # Strip trailing noise words like "balance", "account"
+            account_name = re.sub(r"\b(balance|account|total)\b", "", account_name).strip()
             return LLMResponse(
                 content=None,
                 tool_calls=[
